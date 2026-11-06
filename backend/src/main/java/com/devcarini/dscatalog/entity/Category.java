@@ -1,5 +1,6 @@
 package com.devcarini.dscatalog.entity;
 
+import com.devcarini.dscatalog.dto.CategoryDTO;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
