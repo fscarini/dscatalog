@@ -3,13 +3,16 @@ package com.devcarini.dscatalog.service;
 import com.devcarini.dscatalog.dto.CategoryDTO;
 import com.devcarini.dscatalog.entity.Category;
 import com.devcarini.dscatalog.repository.CategoryRepository;
+import com.devcarini.dscatalog.service.exceptions.DatabaseException;
 import com.devcarini.dscatalog.service.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.TransactionScoped;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -49,5 +52,19 @@ public class CategoryService {
         } catch (EntityNotFoundException e){
             throw new ResourceNotFoundException(e.getMessage() + ": Categoria não encontrada!");
         }
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void delete(Long id) {
+        if (!categoryRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Categoria não encontrada!");
+        }
+
+        try {
+            categoryRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Falha de integridade referencial");
+        }
+
     }
 }
