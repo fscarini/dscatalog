@@ -4,9 +4,7 @@ import com.devcarini.dscatalog.dto.CategoryDTO;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_categories")
@@ -24,9 +22,9 @@ public class Category {
     private Instant updatedAt;
 
     @ManyToMany(mappedBy = "categories")
-    private List<Product> products = new ArrayList<>();
+    private Set<Product> products = new HashSet<>();
 
-    public Category(Long id, String name,List<Product> products) {
+    public Category(Long id, String name, Set<Product> products) {
         this.id = id;
         this.name = name;
         this.products = products;
@@ -51,7 +49,7 @@ public class Category {
         return updatedAt;
     }
 
-    public List<Product> getProducts() {
+    public Set<Product> getProducts() {
         return products;
     }
 

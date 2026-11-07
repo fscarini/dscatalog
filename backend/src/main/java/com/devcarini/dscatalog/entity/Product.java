@@ -2,9 +2,7 @@ package com.devcarini.dscatalog.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_products")
@@ -24,9 +22,9 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private List<Category> categories = new ArrayList<>();
+    private Set<Category> categories = new HashSet<>();
 
-    public Product(Long id, String name, String description, Double price, String imgUrl, List<Category> categories) {
+    public Product(Long id, String name, String description, Double price, String imgUrl, Set<Category> categories) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -58,7 +56,7 @@ public class Product {
         return imgUrl;
     }
 
-    public List<Category> getCategories() {
+    public Set<Category> getCategories() {
         return categories;
     }
 
