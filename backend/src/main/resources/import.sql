@@ -1,7 +1,7 @@
 -- CATEGORIAS
-INSERT INTO tb_categories (name) VALUES ('Livros');
-INSERT INTO tb_categories (name) VALUES ('Eletrônicos');
-INSERT INTO tb_categories (name) VALUES ('Computadores');
+INSERT INTO tb_categories (name, created_at) VALUES ('Livros', NOW());
+INSERT INTO tb_categories (name, created_at) VALUES ('Eletrônicos', NOW());
+INSERT INTO tb_categories (name, created_at) VALUES ('Computadores', NOW());
 
 -- PRODUTOS
 INSERT INTO tb_products (name, description, price, img_url) VALUES ('O Senhor dos Anéis', 'Edição única com os três volumes da obra clássica de fantasia.', 90.5, 'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/1-big.jpg');

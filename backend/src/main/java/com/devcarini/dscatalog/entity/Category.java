@@ -3,6 +3,7 @@ package com.devcarini.dscatalog.entity;
 import com.devcarini.dscatalog.dto.CategoryDTO;
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -16,10 +17,16 @@ public class Category {
     private Long id;
     private String name;
 
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant createdAt;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant updatedAt;
+
     @ManyToMany(mappedBy = "categories")
     private List<Product> products = new ArrayList<>();
 
-    public Category(Long id, String name, List<Product> products) {
+    public Category(Long id, String name,List<Product> products) {
         this.id = id;
         this.name = name;
         this.products = products;
@@ -36,6 +43,14 @@ public class Category {
         return name;
     }
 
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
     public List<Product> getProducts() {
         return products;
     }
@@ -46,6 +61,16 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @PrePersist
+    public void prePersist(){
+        createdAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        updatedAt = Instant.now();
     }
 
     @Override
