@@ -18,7 +18,12 @@ public class Factory {
         return product;
     }
 
-    public static ProductDTO createProductDTO(Product entity){
+    public static ProductDTO createProductDTO(){
+        Product entity = Factory.createProduct();
+        return Factory.createProductDTO(entity);
+    }
+
+    private static ProductDTO createProductDTO(Product entity){
         return new ProductDTO(entity);
     }
 

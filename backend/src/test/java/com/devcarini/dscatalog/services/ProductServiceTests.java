@@ -55,7 +55,7 @@ public class ProductServiceTests {
         dependentId = 3L;
         product = Factory.createProduct();
         page = new PageImpl<>(List.of(product));
-        dto = Factory.createProductDTO(product);
+        dto = Factory.createProductDTO();
         category = Factory.createCategory();
     }
 

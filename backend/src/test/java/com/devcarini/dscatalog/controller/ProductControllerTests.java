@@ -46,7 +46,7 @@ public class ProductControllerTests {
         existingId = 1L;
         nonExistingId = 100L;
         product = Factory.createProduct();
-        dto = Factory.createProductDTO(product);
+        dto = Factory.createProductDTO();
         page = new PageImpl<>(List.of(dto));
     }
 
