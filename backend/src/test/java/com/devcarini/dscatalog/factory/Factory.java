@@ -8,7 +8,7 @@ public class Factory {
 
     public static Product createProduct(){
         Product product = new Product(
-                30L,
+                1L,
                 "Produto de Fábrica",
                 "Lorem ipslum",
                 27.90,
