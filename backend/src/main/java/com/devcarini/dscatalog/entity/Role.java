@@ -16,7 +16,7 @@ public class Role {
     private String authority;
 
     @ManyToMany(mappedBy = "roles")
-    private List<User> users= new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public Role(Long id, String authority) {
         this.id = id;
