@@ -2,6 +2,8 @@ package com.devcarini.dscatalog.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,14 +15,12 @@ public class Role {
     private Long id;
     private String authority;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users= new ArrayList<>();
 
-    public Role(Long id, String authority, User user) {
+    public Role(Long id, String authority) {
         this.id = id;
         this.authority = authority;
-        this.user = user;
     }
 
     public Role() {
@@ -42,12 +42,8 @@ public class Role {
         this.authority = authority;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public List<User> getUser() {
+        return users;
     }
 
     @Override

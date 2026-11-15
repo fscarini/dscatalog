@@ -34,6 +34,10 @@ INSERT INTO tb_users (first_name, last_name, email, password) VALUES ('Alex', 'B
 INSERT INTO tb_users (first_name, last_name, email, password) VALUES ('Maria', 'Green', 'maria@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 
 -- ROLES
-INSERT INTO tb_roles (authority, user_id) VALUES ('ROLE_OPERATOR', 1);
-INSERT INTO tb_roles (authority, user_id) VALUES ('ROLE_OPERATOR', 2);
-INSERT INTO tb_roles (authority, user_id) VALUES ('ROLE_ADMIN', 2);
+INSERT INTO tb_roles (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_roles (authority) VALUES ('ROLE_ADMIN');
+
+-- USER_ROLES
+INSERT INTO tb_user_role (role_id, user_id) VALUES (1, 1);
+INSERT INTO tb_user_role (role_id, user_id) VALUES (2, 2);
+INSERT INTO tb_user_role (role_id, user_id) VALUES (2, 2);

@@ -18,7 +18,12 @@ public class User {
     private String email;
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @ManyToMany
+    @JoinTable(
+            name = "tb_user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private List<Role> roles = new ArrayList<>();
 
     public User(Long id, String firstName, String lastName, String email, String password, List<Role> roles) {
