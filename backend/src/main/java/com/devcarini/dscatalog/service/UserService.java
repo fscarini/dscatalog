@@ -40,7 +40,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public UserDTO findById(Long id) {
         User result = UserRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado!"));
         return new UserDTO(result);
     }
 
@@ -60,14 +60,14 @@ public class UserService {
             entity = UserRepository.save(entity);
             return new UserDTO(entity);
         } catch (EntityNotFoundException e) {
-            throw new ResourceNotFoundException(e.getMessage() + ": Produto não encontrado!");
+            throw new ResourceNotFoundException("Usuário não encontrado!");
         }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if (!UserRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Produto não encontrado!");
+            throw new ResourceNotFoundException("Usuário não encontrado!");
         }
 
         try {

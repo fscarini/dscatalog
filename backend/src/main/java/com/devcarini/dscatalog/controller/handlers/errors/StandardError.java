@@ -2,13 +2,13 @@ package com.devcarini.dscatalog.controller.handlers.errors;
 
 import java.time.Instant;
 
-public class CustomError{
+public class StandardError {
     private Instant timestamp;
     private Integer status;
     private String error;
     private String path;
 
-    public CustomError(Instant timestamp, Integer status, String error, String path) {
+    public StandardError(Instant timestamp, Integer status, String error, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
