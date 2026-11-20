@@ -1,9 +1,8 @@
 package com.devcarini.dscatalog.services;
 
 import com.devcarini.dscatalog.dto.ProductDTO;
-import com.devcarini.dscatalog.repository.ProductRepository;
-import com.devcarini.dscatalog.service.ProductService;
-import com.devcarini.dscatalog.service.exceptions.ResourceNotFoundException;
+import com.devcarini.dscatalog.repositories.ProductRepository;
+import com.devcarini.dscatalog.services.exceptions.ResourceNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.devcarini.dscatalog.dto;
 
-import com.devcarini.dscatalog.entity.Product;
+import com.devcarini.dscatalog.entities.Product;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 

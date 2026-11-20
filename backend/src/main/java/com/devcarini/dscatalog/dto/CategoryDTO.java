@@ -1,6 +1,6 @@
 package com.devcarini.dscatalog.dto;
 
-import com.devcarini.dscatalog.entity.Category;
+import com.devcarini.dscatalog.entities.Category;
 
 public record CategoryDTO(
         Long id,

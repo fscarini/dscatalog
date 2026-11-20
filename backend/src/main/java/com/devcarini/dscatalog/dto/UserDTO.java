@@ -1,9 +1,8 @@
 package com.devcarini.dscatalog.dto;
 
-import com.devcarini.dscatalog.entity.User;
+import com.devcarini.dscatalog.entities.User;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Set;
 import java.util.stream.Collectors;

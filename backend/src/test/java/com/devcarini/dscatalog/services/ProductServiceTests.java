@@ -1,14 +1,13 @@
 package com.devcarini.dscatalog.services;
 
 import com.devcarini.dscatalog.dto.ProductDTO;
-import com.devcarini.dscatalog.entity.Category;
-import com.devcarini.dscatalog.entity.Product;
+import com.devcarini.dscatalog.entities.Category;
+import com.devcarini.dscatalog.entities.Product;
 import com.devcarini.dscatalog.factory.Factory;
-import com.devcarini.dscatalog.repository.CategoryRepository;
-import com.devcarini.dscatalog.repository.ProductRepository;
-import com.devcarini.dscatalog.service.ProductService;
-import com.devcarini.dscatalog.service.exceptions.DatabaseException;
-import com.devcarini.dscatalog.service.exceptions.ResourceNotFoundException;
+import com.devcarini.dscatalog.repositories.CategoryRepository;
+import com.devcarini.dscatalog.repositories.ProductRepository;
+import com.devcarini.dscatalog.services.exceptions.DatabaseException;
+import com.devcarini.dscatalog.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

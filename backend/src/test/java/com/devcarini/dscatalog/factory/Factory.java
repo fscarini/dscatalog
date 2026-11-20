@@ -1,8 +1,8 @@
 package com.devcarini.dscatalog.factory;
 
 import com.devcarini.dscatalog.dto.ProductDTO;
-import com.devcarini.dscatalog.entity.Category;
-import com.devcarini.dscatalog.entity.Product;
+import com.devcarini.dscatalog.entities.Category;
+import com.devcarini.dscatalog.entities.Product;
 
 public class Factory {
 

@@ -1,6 +1,6 @@
 package com.devcarini.dscatalog.dto;
 
-import com.devcarini.dscatalog.entity.Role;
+import com.devcarini.dscatalog.entities.Role;
 
 public record RoleDTO(
         Long id,

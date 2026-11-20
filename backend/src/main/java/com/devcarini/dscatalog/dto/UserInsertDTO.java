@@ -1,13 +1,15 @@
 package com.devcarini.dscatalog.dto;
 
 
-import com.devcarini.dscatalog.entity.User;
+import com.devcarini.dscatalog.entities.User;
+import com.devcarini.dscatalog.services.validation.UserInsertValid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@UserInsertValid
 public record UserInsertDTO(
         Long id,
         @NotBlank(message = "Campo obrigatório")
