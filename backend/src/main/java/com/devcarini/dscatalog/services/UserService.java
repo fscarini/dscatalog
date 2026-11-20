@@ -2,6 +2,7 @@ package com.devcarini.dscatalog.services;
 
 import com.devcarini.dscatalog.dto.UserDTO;
 import com.devcarini.dscatalog.dto.UserInsertDTO;
+import com.devcarini.dscatalog.dto.UserUpdateDTO;
 import com.devcarini.dscatalog.entities.User;
 import com.devcarini.dscatalog.repositories.RoleRepository;
 import com.devcarini.dscatalog.repositories.UserRepository;
@@ -53,7 +54,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserDTO update(UserDTO dto, Long id) {
+    public UserDTO update(UserUpdateDTO dto, Long id) {
         try {
             User entity = UserRepository.getReferenceById(id);
             copyDtoToEntity(dto, entity);
@@ -79,6 +80,19 @@ public class UserService {
     }
 
     private void copyDtoToEntity(UserDTO dto, User entity) {
+        entity.setFirstName(dto.firstName());
+        entity.setLastName(dto.lastName());
+        entity.setEmail(dto.email());
+
+        entity.getRoles().clear();
+        entity.getRoles().addAll(
+                dto.roles().stream()
+                        .map(x -> roleRepository.getReferenceById(x.id()))
+                        .collect(Collectors.toSet())
+        );
+    }
+
+    private void copyDtoToEntity(UserUpdateDTO dto, User entity) {
         entity.setFirstName(dto.firstName());
         entity.setLastName(dto.lastName());
         entity.setEmail(dto.email());
